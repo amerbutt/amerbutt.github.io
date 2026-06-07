@@ -9,11 +9,11 @@
 
         :root {
             --text-primary: #0f172a;
-            --text-secondary: #475569;
+            --text-secondary: #334155;
             --text-muted: #64748b;
             --accent-primary: #10b981;
             --accent-secondary: #4f46e5;
-            --border-color: #e2e8f0;
+            --border-color: #cbd5e1;
             --font-heading: 'Outfit', sans-serif;
             --font-body: 'Inter', sans-serif;
         }
@@ -28,13 +28,13 @@
             font-family: var(--font-body);
             color: var(--text-primary);
             background-color: #ffffff;
-            line-height: 1.5;
-            padding: 40px;
-            max-width: 900px;
+            line-height: 1.45;
+            padding: 35px 45px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
-        /* PRINT STYLING PAGE-BREAK MANAGEMENT */
+        /* PRINT MEDIA CONTROLS */
         @media print {
             body {
                 padding: 0;
@@ -48,21 +48,21 @@
             }
         }
 
-        /* HEADER BANNER */
+        /* HEADER */
         .header-banner {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
             border-bottom: 2.5px solid var(--accent-secondary);
-            padding-bottom: 20px;
-            margin-bottom: 25px;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .header-left h1 {
             font-family: var(--font-heading);
-            font-size: 2.6rem;
+            font-size: 2.4rem;
             font-weight: 800;
-            line-height: 1;
+            line-height: 0.95;
             letter-spacing: -0.04em;
             color: var(--text-primary);
         }
@@ -72,104 +72,180 @@
         }
 
         .header-left .title {
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-size: 1.15rem;
+            font-weight: 700;
             color: var(--accent-primary);
             margin-top: 5px;
         }
 
         .header-right {
             text-align: right;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 2px;
         }
 
         .header-right a {
             color: var(--text-secondary);
             text-decoration: none;
+            font-weight: 500;
         }
 
-        .header-right a:hover {
-            color: var(--accent-secondary);
-        }
-
-        /* SECTION ROW */
+        /* SUMMARY */
         .section-summary {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .section-summary p {
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             color: var(--text-secondary);
             text-align: justify;
+            line-height: 1.5;
         }
 
-        /* CV COLUMN GRID */
-        .cv-grid {
-            display: grid;
-            grid-template-columns: 0.35fr 0.65fr;
-            gap: 35px;
-        }
-
+        /* SECTION TITLE */
         h2.section-title {
             font-family: var(--font-heading);
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--accent-secondary);
-            border-bottom: 1.5px solid var(--border-color);
-            padding-bottom: 6px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* LEFT SIDEBAR */
-        .sidebar-section {
-            margin-bottom: 25px;
-        }
-
-        .skills-group {
+            border-bottom: 2px solid var(--accent-secondary);
+            padding-bottom: 4px;
+            margin-top: 20px;
             margin-bottom: 12px;
+            page-break-after: avoid;
+            break-after: avoid;
         }
 
-        .skills-group h4 {
-            font-size: 0.85rem;
+        /* SKILLS GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .skills-category {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: 6px;
+        }
+
+        .skills-category h4 {
+            font-size: 0.82rem;
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 6px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
         }
 
         .skills-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 4px;
         }
 
         .skill-tag {
-            font-size: 0.78rem;
-            background: #f1f5f9;
+            font-size: 0.75rem;
+            background: #ffffff;
             color: var(--text-secondary);
-            padding: 4px 8px;
+            padding: 3px 6px;
             border-radius: 4px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border-color);
             font-weight: 500;
         }
 
         .skill-tag.highlight {
-            background: rgba(79, 70, 229, 0.05);
-            border-color: rgba(79, 70, 229, 0.15);
-            color: var(--accent-secondary);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            background: rgba(16, 185, 129, 0.02);
             font-weight: 600;
         }
 
+        /* PROFESSIONAL EXPERIENCE */
+        .experience-item {
+            page-break-inside: avoid;
+            break-inside: avoid;
+            margin-bottom: 18px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4px;
+        }
+
+        .exp-role {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .exp-company {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-secondary);
+        }
+
+        .exp-date {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        .exp-details {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .exp-details li {
+            position: relative;
+            padding-left: 12px;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+            line-height: 1.4;
+            text-align: justify;
+        }
+
+        .exp-details li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        /* TWO COLUMN ROW FOR BOTTOM SECTIONS */
+        .two-column-row {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 30px;
+            page-break-inside: avoid;
+            break-inside: avoid;
+            margin-top: 10px;
+        }
+
         .edu-item {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            page-break-inside: avoid;
+            break-inside: avoid;
         }
 
         .edu-degree {
@@ -183,11 +259,16 @@
             color: var(--text-secondary);
         }
 
+        .certifications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
         .cert-item {
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: var(--text-secondary);
-            margin-bottom: 8px;
-            padding-left: 10px;
+            padding-left: 12px;
             position: relative;
         }
 
@@ -195,7 +276,7 @@
             content: '';
             position: absolute;
             left: 0;
-            top: 6px;
+            top: 5px;
             width: 4px;
             height: 4px;
             border-radius: 50%;
@@ -205,85 +286,28 @@
         .languages-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
+            margin-top: 10px;
         }
 
         .lang-chip {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             background: #f8fafc;
             border: 1px solid var(--border-color);
-            padding: 4px 10px;
-            border-radius: 50px;
+            padding: 3px 8px;
+            border-radius: 4px;
             font-weight: 600;
         }
 
-        /* RIGHT MAIN COLUMN */
-        .experience-item {
-            margin-bottom: 22px;
-        }
-
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 6px;
-        }
-
-        .exp-role {
-            font-size: 0.98rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .exp-company {
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: var(--accent-secondary);
-        }
-
-        .exp-date {
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            background: #f1f5f9;
-            padding: 2px 8px;
-            border-radius: 50px;
-            border: 1px solid #e2e8f0;
-            white-space: nowrap;
-        }
-
-        .exp-details {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .exp-details li {
-            position: relative;
-            padding-left: 14px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 5px;
-            line-height: 1.4;
-            text-align: justify;
-        }
-
-        .exp-details li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent-primary);
-            font-weight: bold;
-        }
-
-        /* print preview header */
+        /* PRINT BANNER */
         .print-prompt {
             background: #f0fdf4;
             border: 1px solid #bbf7d0;
             color: #15803d;
-            padding: 12px 20px;
+            padding: 10px 18px;
             border-radius: 8px;
-            margin-bottom: 25px;
-            font-size: 0.9rem;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -293,24 +317,20 @@
             background: var(--accent-secondary);
             color: #ffffff;
             border: none;
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 4px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             cursor: pointer;
             text-decoration: none;
-        }
-
-        .print-btn:hover {
-            opacity: 0.9;
         }
     </style>
 </head>
 <body>
 
-    <!-- Prompt displayed only in browser, hidden when printed -->
+    <!-- Prompt displayed only in browser -->
     <div class="print-prompt no-print">
-        <span>📄 This is the print-ready version of your resume. Click "Save as PDF" to generate your new CV.</span>
+        <span>📄 This is the print-ready version. Click "Save as PDF" to compile your updated CV.</span>
         <button onclick="window.print()" class="print-btn">Print / Save as PDF</button>
     </div>
 
@@ -333,233 +353,217 @@
         <p>Strategic Finance & Project Controls Leader with 25+ years of experience driving operational excellence across international development, infrastructure, and donor-funded programs. Proven expertise in grants management, financial oversight, and compliance with FCDO, USAID, World Bank, and statutory regulations. Adept at streamlining office operations, implementing project control frameworks, and leveraging tools such as Excel and Power BI to deliver actionable insights. Recognized for building high-performing teams, ensuring health & safety compliance, and enabling organizations to achieve efficiency, transparency, and sustainable growth.</p>
     </div>
 
-    <!-- Main Grid -->
-    <div class="cv-grid">
+    <!-- Skills Grid -->
+    <h2 class="section-title">Core Expertise</h2>
+    <div class="skills-grid">
         
-        <!-- Sidebar -->
-        <div class="sidebar-column">
-            
-            <div class="sidebar-section">
-                <h2 class="section-title">Key Skills</h2>
-                
-                <div class="skills-group">
-                    <h4>Project Controls</h4>
-                    <div class="skills-tags">
-                        <span class="skill-tag">Project Controls</span>
-                        <span class="skill-tag">Procurement</span>
-                        <span class="skill-tag">Asset Mgmt</span>
-                        <span class="skill-tag">Office Management</span>
-                        <span class="skill-tag">Health & Safety</span>
-                    </div>
-                </div>
-
-                <div class="skills-group" style="margin-top: 10px;">
-                    <h4>Finance & Compliance</h4>
-                    <div class="skills-tags">
-                        <span class="skill-tag">Financial Mgmt</span>
-                        <span class="skill-tag">Grants Management</span>
-                        <span class="skill-tag">Contracts Mgmt</span>
-                        <span class="skill-tag">Statutory Compliance</span>
-                        <span class="skill-tag">Client Invoicing</span>
-                    </div>
-                </div>
-
-                <div class="skills-group" style="margin-top: 10px;">
-                    <h4>Leadership & Tech</h4>
-                    <div class="skills-tags">
-                        <span class="skill-tag">Team Management</span>
-                        <span class="skill-tag">Coordination</span>
-                        <span class="skill-tag highlight">Advanced Excel</span>
-                        <span class="skill-tag highlight">Power BI</span>
-                        <span class="skill-tag highlight">Power Query</span>
-                        <span class="skill-tag">ERP Systems</span>
-                    </div>
-                </div>
-
-                <div class="skills-group" style="margin-top: 10px;">
-                    <h4>Developer Tools</h4>
-                    <div class="skills-tags">
-                        <span class="skill-tag">HTML5 / CSS3</span>
-                        <span class="skill-tag">JavaScript (JS)</span>
-                        <span class="skill-tag">Google Apps Script</span>
-                        <span class="skill-tag">Git / GitHub</span>
-                    </div>
-                </div>
+        <div class="skills-category">
+            <h4>Controls & Ops</h4>
+            <div class="skills-tags">
+                <span class="skill-tag">Project Controls</span>
+                <span class="skill-tag">Procurement</span>
+                <span class="skill-tag">Asset Mgmt</span>
+                <span class="skill-tag">Office Management</span>
+                <span class="skill-tag">Health & Safety</span>
             </div>
-
-            <div class="sidebar-section">
-                <h2 class="section-title">Education</h2>
-                <div class="edu-item">
-                    <div class="edu-degree">MBA (Finance)</div>
-                    <div class="edu-school">University of Peshawar, 2007</div>
-                </div>
-                <div class="edu-item">
-                    <div class="edu-degree">B. Com</div>
-                    <div class="edu-school">University of Punjab, 1992</div>
-                </div>
-                <div class="edu-item">
-                    <div class="edu-degree">CS Certification</div>
-                    <div class="edu-school">Quaid-e-Azam University</div>
-                </div>
-            </div>
-
-            <div class="sidebar-section">
-                <h2 class="section-title">Certifications</h2>
-                <div class="certifications-list">
-                    <div class="cert-item">Financial Management</div>
-                    <div class="cert-item">USAID/CIDA & FAO Rules</div>
-                    <div class="cert-item">Advanced MS Excel</div>
-                    <div class="cert-item">Power BI Reporting</div>
-                    <div class="cert-item">Project Cycle Mgmt</div>
-                    <div class="cert-item">Management Skills</div>
-                    <div class="cert-item">Security & Ethics</div>
-                </div>
-            </div>
-
-            <div class="sidebar-section">
-                <h2 class="section-title">Languages</h2>
-                <div class="languages-list">
-                    <span class="lang-chip">English</span>
-                    <span class="lang-chip">Urdu</span>
-                    <span class="lang-chip">Punjabi</span>
-                    <span class="lang-chip">Pushto</span>
-                </div>
-            </div>
-
         </div>
 
-        <!-- Main Content (Experience) -->
-        <div class="main-column">
-            <h2 class="section-title">Professional Experience</h2>
-
-            <!-- Freelance Work -->
-            <div class="experience-item">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-role">Freelance Finance & Data Management Consultant</div>
-                        <div class="exp-company">Independent Professional (SME Services)</div>
-                    </div>
-                    <span class="exp-date">2016 – Present</span>
-                </div>
-                <ul class="exp-details">
-                    <li>Providing expert freelance solutions in corporate financial analysis, database structuring, and operational reporting for international small-and-medium enterprises.</li>
-                    <li>Designing and deploying custom Google Apps Script automation, HTML/CSS web interfaces, and JavaScript workflows to streamline backend financial processes.</li>
-                    <li>Developing predictive budget models, cash flow forecasting sheets, and interactive reporting dashboards using Power BI.</li>
-                </ul>
+        <div class="skills-category">
+            <h4>Finance & Compliance</h4>
+            <div class="skills-tags">
+                <span class="skill-tag">Financial Mgmt</span>
+                <span class="skill-tag">Grants Management</span>
+                <span class="skill-tag">Contracts Mgmt</span>
+                <span class="skill-tag">Statutory Compliance</span>
+                <span class="skill-tag">Client Invoicing</span>
             </div>
+        </div>
 
-            <!-- Mott MacDonald -->
-            <div class="experience-item">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-role">Office Manager / Project Coordinator / Country Finance Manager</div>
-                        <div class="exp-company">Mott MacDonald Limited (Pakistan Branch)</div>
-                    </div>
-                    <span class="exp-date">Sep 2016 – Present</span>
-                </div>
-                <ul class="exp-details">
-                    <li>Designed and implemented robust grant management frameworks for FCDO and World Bank projects, overseeing secure disbursements.</li>
-                    <li>Established project controls and commercial plans that improved financial transparency and reduced cycle times by 30%.</li>
-                    <li>Led client coordination, invoicing, and contract compliance, ensuring 100% adherence to donor and statutory requirements.</li>
-                    <li>Developed automated financial and project dashboards in Excel and Power BI, enabling real-time decision-making.</li>
-                    <li>Directed the Country Finance Department, managing multimillion budgets and ensuring compliance.</li>
-                </ul>
+        <div class="skills-category">
+            <h4>Technology & Tools</h4>
+            <div class="skills-tags">
+                <span class="skill-tag highlight">Advanced Excel</span>
+                <span class="skill-tag highlight">Power BI</span>
+                <span class="skill-tag highlight">Power Query</span>
+                <span class="skill-tag">Google Apps Script</span>
+                <span class="skill-tag">HTML5 / CSS3</span>
+                <span class="skill-tag">JavaScript (JS)</span>
+                <span class="skill-tag">Git / GitHub</span>
             </div>
+        </div>
 
-            <!-- DAI -->
-            <div class="experience-item">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-role">Grants Coordinator</div>
-                        <div class="exp-company">DAI</div>
-                    </div>
-                    <span class="exp-date">Sep 2014 – Aug 2016</span>
-                </div>
-                <ul class="exp-details">
-                    <li>Designed and implemented grant management and financial control systems, ensuring full compliance with donor guidelines.</li>
-                    <li>Conducted financial reviews and cash-flow management that improved liquidity planning and reduced funding delays.</li>
-                    <li>Acted as primary liaison with clients on commercial aspects, strengthening commercial trust.</li>
-                    <li>Developed project reporting dashboards that enhanced visibility of grant performance.</li>
-                </ul>
+    </div>
+
+    <!-- Experience Timeline -->
+    <h2 class="section-title">Professional Experience</h2>
+
+    <!-- Freelance -->
+    <div class="experience-item">
+        <div class="exp-header">
+            <div>
+                <div class="exp-role">Freelance Finance & Data Management Consultant</div>
+                <div class="exp-company">Independent Professional (SME Services)</div>
             </div>
+            <span class="exp-date">2016 – Present</span>
+        </div>
+        <ul class="exp-details">
+            <li>Providing expert freelance solutions in corporate financial analysis, database structuring, and operational reporting for international small-and-medium enterprises.</li>
+            <li>Designing and deploying custom Google Apps Script automation, HTML/CSS web interfaces, and JavaScript workflows to streamline backend financial processes.</li>
+            <li>Developing predictive budget models, cash flow forecasting sheets, and interactive reporting dashboards using Power BI.</li>
+        </ul>
+    </div>
 
-            <!-- MEDA -->
-            <div class="experience-item">
-                <div class="exp-role" style="page-break-before: always; height: 1px; opacity: 0; padding: 0; margin: 0;">Page Break</div>
-                <div class="exp-header" style="margin-top: 25px;">
-                    <div>
-                        <div class="exp-role">Grants Management Specialist</div>
-                        <div class="exp-company">MEDA Pakistan</div>
-                    </div>
-                    <span class="exp-date">Feb 2011 – Aug 2014</span>
-                </div>
-                <ul class="exp-details">
-                    <li>Established financial management systems for grantees, improving accountability and reporting accuracy.</li>
-                    <li>Conducted financial reviews and audits, identifying risks and ensuring corrective actions.</li>
-                    <li>Successfully closed out multiple USAID-funded grants, meeting all compliance requirements.</li>
-                </ul>
+    <!-- Mott MacDonald -->
+    <div class="experience-item">
+        <div class="exp-header">
+            <div>
+                <div class="exp-role">Office Manager / Project Coordinator / Country Finance Manager</div>
+                <div class="exp-company">Mott MacDonald Limited (Pakistan Branch)</div>
             </div>
+            <span class="exp-date">Sep 2016 – Present</span>
+        </div>
+        <ul class="exp-details">
+            <li>Designed and implemented robust grant management frameworks for FCDO and World Bank projects, overseeing secure disbursements.</li>
+            <li>Established project controls and commercial plans that improved financial transparency and reduced cycle times by 30%.</li>
+            <li>Led client coordination, invoicing, and contract compliance, ensuring 100% adherence to donor and statutory requirements.</li>
+            <li>Developed automated financial and project dashboards in Excel and Power BI, enabling real-time decision-making.</li>
+            <li>Directed the Country Finance Department, managing multimillion budgets and ensuring compliance.</li>
+        </ul>
+    </div>
 
-            <!-- IUCN -->
-            <div class="experience-item">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-role">Manager Accounts</div>
-                        <div class="exp-company">IUCN – The World Conservation Union</div>
-                    </div>
-                    <span class="exp-date">Jan 2006 – Feb 2011</span>
-                </div>
-                <ul class="exp-details">
-                    <li>Managed commercials for multiple conservation projects, ensuring donor and statutory compliance.</li>
-                    <li>Directed the Country Finance Department, overseeing budgeting, reporting, and audits.</li>
-                    <li>Developed financial reporting tools and templates that standardized reporting.</li>
-                </ul>
+    <!-- DAI -->
+    <div class="experience-item">
+        <div class="exp-header">
+            <div>
+                <div class="exp-role">Grants Coordinator</div>
+                <div class="exp-company">DAI</div>
             </div>
+            <span class="exp-date">Sep 2014 – Aug 2016</span>
+        </div>
+        <ul class="exp-details">
+            <li>Designed and implemented grant management and financial control systems, ensuring full compliance with donor guidelines.</li>
+            <li>Conducted financial reviews and cash-flow management that improved liquidity planning and reduced funding delays.</li>
+            <li>Acted as primary liaison with clients on commercial aspects, strengthening commercial trust.</li>
+            <li>Developed project reporting dashboards that enhanced visibility of grant performance.</li>
+        </ul>
+    </div>
 
-            <!-- Ministry -->
-            <div class="experience-item">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-role">Accountant</div>
-                        <div class="exp-company">Ministry of Planning & Development Division</div>
-                    </div>
-                    <span class="exp-date">Feb 2004 – Dec 2005</span>
-                </div>
-                <ul class="exp-details">
-                    <li>Implemented computerized accounting systems, modernizing financial operations.</li>
-                    <li>Managed payroll, audits, and preparation of financial statements for government projects.</li>
-                </ul>
+    <!-- MEDA -->
+    <div class="experience-item">
+        <div class="exp-header">
+            <div>
+                <div class="exp-role">Grants Management Specialist</div>
+                <div class="exp-company">MEDA Pakistan</div>
             </div>
+            <span class="exp-date">Feb 2011 – Aug 2014</span>
+        </div>
+        <ul class="exp-details">
+            <li>Established financial management systems for grantees, improving accountability and reporting accuracy.</li>
+            <li>Conducted financial reviews and audits, identifying risks and ensuring corrective actions.</li>
+            <li>Successfully closed out multiple USAID-funded grants, meeting all compliance requirements.</li>
+        </ul>
+    </div>
 
-            <!-- Deloitte -->
-            <div class="experience-item">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-role">Accounts Officer cum Computer Trainer</div>
-                        <div class="exp-company">M. Yousuf Adil Saleem & Co. (Deloitte)</div>
-                    </div>
-                    <span class="exp-date">Oct 1995 – Jun 2001</span>
-                </div>
-                <ul class="exp-details">
-                    <li>Developed electronic accounting systems and internal controls, improving efficiency and accuracy.</li>
-                    <li>Delivered computer application training to CA students and government employees.</li>
-                </ul>
+    <!-- IUCN -->
+    <div class="experience-item">
+        <div class="exp-header">
+            <div>
+                <div class="exp-role">Manager Accounts</div>
+                <div class="exp-company">IUCN – The World Conservation Union</div>
             </div>
+            <span class="exp-date">Jan 2006 – Feb 2011</span>
+        </div>
+        <ul class="exp-details">
+            <li>Managed commercials for multiple conservation projects, ensuring donor and statutory compliance.</li>
+            <li>Directed the Country Finance Department, overseeing budgeting, reporting, and audits.</li>
+            <li>Developed financial reporting tools and templates that standardized reporting.</li>
+        </ul>
+    </div>
 
-            <!-- DC Pager -->
-            <div class="experience-item">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-role">Service Coordinator</div>
-                        <div class="exp-company">Digital Radio Paging Limited (DC Pager)</div>
-                    </div>
-                    <span class="exp-date">Jun 1994 – Oct 1995</span>
-                </div>
-                <ul class="exp-details">
-                    <li>Coordinated service operations and managed staff shifts to ensure uninterrupted paging services.</li>
-                </ul>
+    <!-- Ministry -->
+    <div class="experience-item">
+        <div class="exp-header">
+            <div>
+                <div class="exp-role">Accountant</div>
+                <div class="exp-company">Ministry of Planning & Development Division</div>
             </div>
+            <span class="exp-date">Feb 2004 – Dec 2005</span>
+        </div>
+        <ul class="exp-details">
+            <li>Implemented computerized accounting systems, modernizing financial operations.</li>
+            <li>Managed payroll, audits, and preparation of financial statements for government projects.</li>
+        </ul>
+    </div>
 
+    <!-- Deloitte -->
+    <div class="experience-item">
+        <div class="exp-header">
+            <div>
+                <div class="exp-role">Accounts Officer cum Computer Trainer</div>
+                <div class="exp-company">M. Yousuf Adil Saleem & Co. (Deloitte)</div>
+            </div>
+            <span class="exp-date">Oct 1995 – Jun 2001</span>
+        </div>
+        <ul class="exp-details">
+            <li>Developed electronic accounting systems and internal controls, improving efficiency and accuracy.</li>
+            <li>Delivered computer application training to CA students and government employees.</li>
+        </ul>
+    </div>
+
+    <!-- DC Pager -->
+    <div class="experience-item">
+        <div class="exp-header">
+            <div>
+                <div class="exp-role">Service Coordinator</div>
+                <div class="exp-company">Digital Radio Paging Limited (DC Pager)</div>
+            </div>
+            <span class="exp-date">Jun 1994 – Oct 1995</span>
+        </div>
+        <ul class="exp-details">
+            <li>Coordinated service operations and managed staff shifts to ensure uninterrupted paging services.</li>
+        </ul>
+    </div>
+
+    <!-- Bottom Sections Row -->
+    <div class="two-column-row">
+        
+        <!-- Left: Education & Languages -->
+        <div class="column">
+            <h2 class="section-title">Education</h2>
+            <div class="edu-item">
+                <div class="edu-degree">MBA (Finance)</div>
+                <div class="edu-school">University of Peshawar, 2007</div>
+            </div>
+            <div class="edu-item">
+                <div class="edu-degree">B. Com</div>
+                <div class="edu-school">University of Punjab, 1992</div>
+            </div>
+            <div class="edu-item">
+                <div class="edu-degree">CS Certification</div>
+                <div class="edu-school">Quaid-e-Azam University</div>
+            </div>
+            
+            <h2 class="section-title">Languages</h2>
+            <div class="languages-list">
+                <span class="lang-chip">English</span>
+                <span class="lang-chip">Urdu</span>
+                <span class="lang-chip">Punjabi</span>
+                <span class="lang-chip">Pushto</span>
+            </div>
+        </div>
+
+        <!-- Right: Certifications -->
+        <div class="column">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certifications-list">
+                <div class="cert-item">Financial Management</div>
+                <div class="cert-item">USAID/CIDA & FAO Rules</div>
+                <div class="cert-item">Advanced MS Excel</div>
+                <div class="cert-item">Power BI Reporting</div>
+                <div class="cert-item">Project Cycle Mgmt</div>
+                <div class="cert-item">Management Skills</div>
+                <div class="cert-item">Security & Ethics</div>
+            </div>
         </div>
 
     </div>
