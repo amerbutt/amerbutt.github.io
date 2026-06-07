@@ -311,42 +311,6 @@
             margin-top: 5px;
         }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 13px 26px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            border-radius: var(--border-radius-sm);
-            text-decoration: none;
-            cursor: pointer;
-            transition: all var(--transition-speed) ease;
-        }
-
-        .btn-primary {
-            background: var(--accent-gradient);
-            color: #ffffff;
-            border: none;
-            box-shadow: 0 4px 15px var(--glow-color);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px var(--glow-color);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background: var(--border-color);
-            transform: translateY(-2px);
-        }
-
         .hero-image-wrapper {
             position: relative;
             display: flex;
@@ -452,7 +416,7 @@
         /* SKILLS SECTION */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
         }
 
@@ -516,7 +480,48 @@
             border-color: var(--accent-secondary);
         }
 
-        /* VERTICAL INTERACTIVE TIMELINE */
+        /* LOGO WRAPPER AND FALLBACK */
+        .logo-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            box-shadow: 0 4px 10px var(--shadow-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .logo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            z-index: 2;
+        }
+
+        .logo-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            z-index: 1;
+        }
+
+        /* TIMELINE */
         .timeline-container {
             position: relative;
             max-width: 850px;
@@ -534,7 +539,7 @@
             content: '';
             position: absolute;
             left: -47px;
-            top: 20px;
+            top: 24px;
             width: 20px;
             height: 20px;
             border-radius: 50%;
@@ -557,7 +562,7 @@
             cursor: pointer;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            padding: 18px 24px;
+            padding: 14px 20px;
             border-radius: var(--border-radius-sm);
             transition: all var(--transition-speed) ease;
             user-select: none;
@@ -568,23 +573,29 @@
             box-shadow: 0 4px 15px var(--glow-color);
         }
 
-        .timeline-title-group {
+        .timeline-company-info {
             display: flex;
-            flex-direction: column;
-            gap: 4px;
+            align-items: center;
+            gap: 16px;
             flex-grow: 1;
             padding-right: 20px;
         }
 
+        .timeline-title-group {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
         .timeline-role {
             font-family: var(--font-heading);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--text-primary);
         }
 
         .timeline-company {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: var(--accent-secondary);
         }
@@ -596,7 +607,7 @@
         }
 
         .timeline-date {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 600;
             color: var(--text-muted);
             background: rgba(129, 140, 248, 0.08);
@@ -678,9 +689,9 @@
         .education-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            padding: 20px 24px;
+            padding: 16px 20px;
             border-radius: var(--border-radius-sm);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             box-shadow: 0 4px 15px var(--shadow-color);
             transition: border-color var(--transition-speed);
         }
@@ -689,16 +700,27 @@
             border-color: var(--accent-secondary);
         }
 
+        .edu-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .edu-details-group {
+            display: flex;
+            flex-direction: column;
+        }
+
         .edu-degree {
             font-family: var(--font-heading);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 4px;
         }
 
         .edu-school {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--text-secondary);
             font-weight: 500;
         }
@@ -1052,12 +1074,17 @@
             .timeline-header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 8px;
+                gap: 12px;
+            }
+
+            .timeline-company-info {
+                width: 100%;
             }
 
             .timeline-meta {
                 width: 100%;
                 justify-content: space-between;
+                padding-left: 64px; /* Align with text after logo */
             }
 
             h2 {
@@ -1208,6 +1235,18 @@
                         </div>
                     </div>
 
+                    <div class="skills-category-card">
+                        <h3>Web & Developer Tools</h3>
+                        <div class="skills-tags">
+                            <span class="skill-tag tool-highlight">HTML5</span>
+                            <span class="skill-tag tool-highlight">CSS3</span>
+                            <span class="skill-tag tool-highlight">JavaScript (JS)</span>
+                            <span class="skill-tag tool-highlight">Google Apps Script</span>
+                            <span class="skill-tag tool-highlight">Git / GitHub</span>
+                            <span class="skill-tag tool-highlight">Chrome DevTools</span>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
@@ -1219,9 +1258,15 @@
                     <!-- Item 1: Mott MacDonald -->
                     <div class="timeline-item">
                         <div class="timeline-header">
-                            <div class="timeline-title-group">
-                                <span class="timeline-role">Office Manager / Project Coordinator / Country Finance & Grants Manager</span>
-                                <span class="timeline-company">Mott MacDonald Pakistan</span>
+                            <div class="timeline-company-info">
+                                <div class="logo-wrapper">
+                                    <img src="logos/mott.png" alt="Mott MacDonald" onerror="this.style.display='none';">
+                                    <div class="logo-fallback" style="background: linear-gradient(135deg, #2563eb, #0d9488);">MM</div>
+                                </div>
+                                <div class="timeline-title-group">
+                                    <span class="timeline-role">Office Manager / Project Coordinator / Country Finance & Grants Manager</span>
+                                    <span class="timeline-company">Mott MacDonald Pakistan</span>
+                                </div>
                             </div>
                             <div class="timeline-meta">
                                 <span class="timeline-date">Sep 2016 – Present</span>
@@ -1244,9 +1289,15 @@
                     <!-- Item 2: DAI -->
                     <div class="timeline-item">
                         <div class="timeline-header">
-                            <div class="timeline-title-group">
-                                <span class="timeline-role">Grants Coordinator</span>
-                                <span class="timeline-company">DAI</span>
+                            <div class="timeline-company-info">
+                                <div class="logo-wrapper">
+                                    <img src="logos/dai.png" alt="DAI" onerror="this.style.display='none';">
+                                    <div class="logo-fallback" style="background: linear-gradient(135deg, #1e3a8a, #06b6d4);">DAI</div>
+                                </div>
+                                <div class="timeline-title-group">
+                                    <span class="timeline-role">Grants Coordinator</span>
+                                    <span class="timeline-company">DAI</span>
+                                </div>
                             </div>
                             <div class="timeline-meta">
                                 <span class="timeline-date">Sep 2014 – Aug 2016</span>
@@ -1266,9 +1317,15 @@
                     <!-- Item 3: MEDA -->
                     <div class="timeline-item">
                         <div class="timeline-header">
-                            <div class="timeline-title-group">
-                                <span class="timeline-role">Grants Management Specialist</span>
-                                <span class="timeline-company">MEDA Pakistan</span>
+                            <div class="timeline-company-info">
+                                <div class="logo-wrapper">
+                                    <img src="logos/meda.png" alt="MEDA Pakistan" onerror="this.style.display='none';">
+                                    <div class="logo-fallback" style="background: linear-gradient(135deg, #059669, #10b981);">MEDA</div>
+                                </div>
+                                <div class="timeline-title-group">
+                                    <span class="timeline-role">Grants Management Specialist</span>
+                                    <span class="timeline-company">MEDA Pakistan</span>
+                                </div>
                             </div>
                             <div class="timeline-meta">
                                 <span class="timeline-date">Feb 2011 – Aug 2014</span>
@@ -1288,9 +1345,15 @@
                     <!-- Item 4: IUCN -->
                     <div class="timeline-item">
                         <div class="timeline-header">
-                            <div class="timeline-title-group">
-                                <span class="timeline-role">Manager Accounts</span>
-                                <span class="timeline-company">IUCN – The World Conservation Union</span>
+                            <div class="timeline-company-info">
+                                <div class="logo-wrapper">
+                                    <img src="logos/iucn.png" alt="IUCN" onerror="this.style.display='none';">
+                                    <div class="logo-fallback" style="background: linear-gradient(135deg, #0284c7, #3b82f6);">IUCN</div>
+                                </div>
+                                <div class="timeline-title-group">
+                                    <span class="timeline-role">Manager Accounts</span>
+                                    <span class="timeline-company">IUCN – The World Conservation Union</span>
+                                </div>
                             </div>
                             <div class="timeline-meta">
                                 <span class="timeline-date">Jan 2006 – Feb 2011</span>
@@ -1310,9 +1373,15 @@
                     <!-- Item 5: Ministry -->
                     <div class="timeline-item">
                         <div class="timeline-header">
-                            <div class="timeline-title-group">
-                                <span class="timeline-role">Accountant</span>
-                                <span class="timeline-company">Ministry of Planning & Development Division</span>
+                            <div class="timeline-company-info">
+                                <div class="logo-wrapper">
+                                    <img src="logos/ministry.png" alt="Ministry of Planning" onerror="this.style.display='none';">
+                                    <div class="logo-fallback" style="background: linear-gradient(135deg, #15803d, #eab308);">MPD</div>
+                                </div>
+                                <div class="timeline-title-group">
+                                    <span class="timeline-role">Accountant</span>
+                                    <span class="timeline-company">Ministry of Planning & Development Division</span>
+                                </div>
                             </div>
                             <div class="timeline-meta">
                                 <span class="timeline-date">Feb 2004 – Dec 2005</span>
@@ -1331,9 +1400,15 @@
                     <!-- Item 6: Deloitte -->
                     <div class="timeline-item">
                         <div class="timeline-header">
-                            <div class="timeline-title-group">
-                                <span class="timeline-role">Accounts Officer cum Computer Trainer</span>
-                                <span class="timeline-company">M. Yousuf Adil Saleem & Co. (Deloitte)</span>
+                            <div class="timeline-company-info">
+                                <div class="logo-wrapper">
+                                    <img src="logos/deloitte.png" alt="Deloitte" onerror="this.style.display='none';">
+                                    <div class="logo-fallback" style="background: linear-gradient(135deg, #022329, #86efac);">DL</div>
+                                </div>
+                                <div class="timeline-title-group">
+                                    <span class="timeline-role">Accounts Officer cum Computer Trainer</span>
+                                    <span class="timeline-company">M. Yousuf Adil Saleem & Co. (Deloitte)</span>
+                                </div>
                             </div>
                             <div class="timeline-meta">
                                 <span class="timeline-date">Oct 1995 – Jun 2001</span>
@@ -1352,9 +1427,15 @@
                     <!-- Item 7: DC Pager -->
                     <div class="timeline-item">
                         <div class="timeline-header">
-                            <div class="timeline-title-group">
-                                <span class="timeline-role">Service Coordinator</span>
-                                <span class="timeline-company">Digital Radio Paging Limited (DC Pager)</span>
+                            <div class="timeline-company-info">
+                                <div class="logo-wrapper">
+                                    <img src="logos/dcpager.png" alt="Digital Radio Paging" onerror="this.style.display='none';">
+                                    <div class="logo-fallback" style="background: linear-gradient(135deg, #dc2626, #f97316);">DRP</div>
+                                </div>
+                                <div class="timeline-title-group">
+                                    <span class="timeline-role">Service Coordinator</span>
+                                    <span class="timeline-company">Digital Radio Paging Limited (DC Pager)</span>
+                                </div>
                             </div>
                             <div class="timeline-meta">
                                 <span class="timeline-date">Jun 1994 – Oct 1995</span>
@@ -1379,17 +1460,44 @@
                     <!-- Left: Education & Languages -->
                     <div class="edu-column">
                         <h2>Education</h2>
+                        
                         <div class="education-card">
-                            <div class="edu-degree">Masters in Business Administration (MBA-Finance)</div>
-                            <div class="edu-school">University of Peshawar, Pakistan, 2007</div>
+                            <div class="edu-info">
+                                <div class="logo-wrapper">
+                                    <img src="logos/peshawar.png" alt="University of Peshawar" onerror="this.style.display='none';">
+                                    <div class="logo-fallback" style="background: linear-gradient(135deg, #7c3aed, #ec4899);">UP</div>
+                                </div>
+                                <div class="edu-details-group">
+                                    <div class="edu-degree">Masters in Business Administration (MBA-Finance)</div>
+                                    <div class="edu-school">University of Peshawar, Pakistan, 2007</div>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="education-card">
-                            <div class="edu-degree">Bachelor of Commerce (B. Com)</div>
-                            <div class="edu-school">University of Punjab, Pakistan, 1992</div>
+                            <div class="edu-info">
+                                <div class="logo-wrapper">
+                                    <img src="logos/punjab.png" alt="University of Punjab" onerror="this.style.display='none';">
+                                    <div class="logo-fallback" style="background: linear-gradient(135deg, #4f46e5, #8b5cf6);">UOP</div>
+                                </div>
+                                <div class="edu-details-group">
+                                    <div class="edu-degree">Bachelor of Commerce (B. Com)</div>
+                                    <div class="edu-school">University of Punjab, Pakistan, 1992</div>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="education-card">
-                            <div class="edu-degree">Professional Certification in Computer Sciences (PC)</div>
-                            <div class="edu-school">Quaid-e-Azam University, Islamabad, Pakistan</div>
+                            <div class="edu-info">
+                                <div class="logo-wrapper">
+                                    <img src="logos/qau.png" alt="Quaid-e-Azam University" onerror="this.style.display='none';">
+                                    <div class="logo-fallback" style="background: linear-gradient(135deg, #0f172a, #14b8a6);">QAU</div>
+                                </div>
+                                <div class="edu-details-group">
+                                    <div class="edu-degree">Professional Certification in Computer Sciences (PC)</div>
+                                    <div class="edu-school">Quaid-e-Azam University, Islamabad, Pakistan</div>
+                                </div>
+                            </div>
                         </div>
                         
                         <h2 style="margin-top: 30px;">Languages</h2>
