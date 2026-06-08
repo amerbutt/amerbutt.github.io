@@ -63,6 +63,13 @@
             scroll-behavior: smooth;
         }
 
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: var(--font-body);
             background-color: var(--bg-primary);
@@ -70,7 +77,6 @@
             line-height: 1.6;
             transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
             position: relative;
-            overflow-x: hidden;
         }
 
         /* BACKGROUND GLOW BLOBS */
@@ -1112,7 +1118,10 @@
 
         @media (max-width: 850px) {
             header.nav-header {
-                width: calc(100% - 24px);
+                width: auto;
+                left: 12px;
+                right: 12px;
+                transform: none;
                 top: 12px;
             }
 
