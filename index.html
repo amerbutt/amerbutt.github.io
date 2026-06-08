@@ -79,6 +79,17 @@
             position: relative;
         }
 
+        .ambient-bg-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -2;
+        }
+
         /* BACKGROUND GLOW BLOBS */
         .glow-blob {
             position: absolute;
@@ -1144,7 +1155,7 @@
             }
 
             .hero-title {
-                font-size: 2.6rem;
+                font-size: 2.2rem;
             }
 
             .mobile-menu-toggle-btn {
@@ -1211,13 +1222,21 @@
                 font-size: 1.75rem;
             }
         }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.85rem;
+            }
+        }
     </style>
 </head>
 <body>
 
     <!-- Ambient glow blur background -->
-    <div class="glow-blob blob-1"></div>
-    <div class="glow-blob blob-2"></div>
+    <div class="ambient-bg-container">
+        <div class="glow-blob blob-1"></div>
+        <div class="glow-blob blob-2"></div>
+    </div>
 
     <div class="container">
         
