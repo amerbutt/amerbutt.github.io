@@ -219,6 +219,54 @@
             display: none;
         }
 
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mobile-menu-toggle-btn {
+            display: none;
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            transition: all var(--transition-speed) ease;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle-btn:hover {
+            background: var(--border-color);
+        }
+
+        .mobile-menu-toggle-btn .bar {
+            width: 18px;
+            height: 2px;
+            background-color: var(--text-primary);
+            border-radius: 2px;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .mobile-menu-toggle-btn.active .bar:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .mobile-menu-toggle-btn.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle-btn.active .bar:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
         /* MAIN WRAPPER */
         main {
             padding-top: 130px;
@@ -1067,8 +1115,47 @@
                 font-size: 2.6rem;
             }
 
+            .mobile-menu-toggle-btn {
+                display: flex;
+            }
+
             .nav-menu {
-                display: none;
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 85px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-card);
+                backdrop-filter: var(--glass-blur);
+                -webkit-backdrop-filter: var(--glass-blur);
+                border: 1px solid var(--border-color);
+                border-radius: var(--border-radius-md);
+                padding: 24px;
+                gap: 16px;
+                box-shadow: 0 10px 30px var(--shadow-color);
+                transform: translateY(-15px);
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-menu .nav-link {
+                display: block;
+                padding: 8px 0;
+                font-size: 1.05rem;
             }
 
             .timeline-header {
@@ -1089,6 +1176,19 @@
 
             h2 {
                 font-size: 1.75rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .logo {
+                font-size: 1.25rem;
+            }
+            .nav-container {
+                padding: 0 16px;
+            }
+            header.nav-header {
+                width: calc(100% - 24px);
+                top: 12px;
             }
         }
     </style>
@@ -1114,24 +1214,31 @@
                     <li><a href="#education" class="nav-link">Education</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
-                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
-                    <!-- Sun Icon (shows in dark theme) -->
-                    <svg class="sun-icon" viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="4.22" x2="19.78" y2="5.64"></line>
-                    </svg>
-                    <!-- Moon Icon (shows in light theme) -->
-                    <svg class="moon-icon" viewBox="0 0 24 24">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
+                <div class="nav-actions">
+                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                        <!-- Sun Icon (shows in dark theme) -->
+                        <svg class="sun-icon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="4.22" x2="19.78" y2="5.64"></line>
+                        </svg>
+                        <!-- Moon Icon (shows in light theme) -->
+                        <svg class="moon-icon" viewBox="0 0 24 24">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-toggle" class="mobile-menu-toggle-btn" aria-label="Toggle Menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                </div>
             </div>
         </header>
 
@@ -1701,6 +1808,23 @@
             details.classList.add('active');
             details.style.maxHeight = details.scrollHeight + "px";
         }
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking any nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
 
         // --- Form Submission Intercept ---
         document.getElementById('contact-form').addEventListener('submit', function(e) {
