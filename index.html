@@ -175,6 +175,18 @@
             gap: 12px;
         }
 
+        .sidebar-name-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .theme-toggle-btn.theme-toggle-desktop {
+            display: none;
+        }
+
         .sidebar-avatar-wrapper {
             width: 95px;
             height: 95px;
@@ -1271,6 +1283,26 @@
                 padding: 40px 24px;
                 box-sizing: border-box;
             }
+
+            .sidebar-name-row {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                width: 100%;
+            }
+
+            .theme-toggle-btn.theme-toggle-desktop {
+                display: flex;
+                width: 32px;
+                height: 32px;
+                flex-shrink: 0;
+            }
+
+            .theme-toggle-btn.theme-toggle-desktop svg {
+                width: 16px;
+                height: 16px;
+            }
             
             .nav-link::after {
                 display: none !important;
@@ -1513,7 +1545,27 @@
                     <div class="sidebar-avatar-wrapper">
                         <img src="profile.png" alt="Amer Butt - Headshot Portrait">
                     </div>
-                    <span class="sidebar-name"><span class="logo-accent">Amer</span> Butt</span>
+                    <div class="sidebar-name-row">
+                        <span class="sidebar-name"><span class="logo-accent">Amer</span> Butt</span>
+                        <button class="theme-toggle-btn theme-toggle-desktop" aria-label="Toggle Theme">
+                            <!-- Sun Icon (shows in dark theme) -->
+                            <svg class="sun-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="4.22" x2="19.78" y2="5.64"></line>
+                            </svg>
+                            <!-- Moon Icon (shows in light theme) -->
+                            <svg class="moon-icon" viewBox="0 0 24 24">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                    </div>
                     <span class="sidebar-subtitle">Strategic Finance & Project Controls Leader</span>
                 </div>
 
@@ -1538,24 +1590,6 @@
                             <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg>
                         </a>
                     </div>
-                    <button class="theme-toggle-btn theme-toggle-desktop" aria-label="Toggle Theme">
-                        <!-- Sun Icon (shows in dark theme) -->
-                        <svg class="sun-icon" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="4.22" x2="19.78" y2="5.64"></line>
-                        </svg>
-                        <!-- Moon Icon (shows in light theme) -->
-                        <svg class="moon-icon" viewBox="0 0 24 24">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                    </button>
                     <p class="sidebar-copyright">&copy; 2026 Amer Butt. All rights reserved.</p>
                 </div>
             </div>
